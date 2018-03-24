@@ -1,4 +1,5 @@
 # Data Preprocessing
+setwd("/Users/princesharma/Documents/MachineLearning/Machine Learning A-Z Template Folder/Part 1 - Data Preprocessing/")
 
 # Importing the dataset
 dataset = read.csv('Data.csv')
