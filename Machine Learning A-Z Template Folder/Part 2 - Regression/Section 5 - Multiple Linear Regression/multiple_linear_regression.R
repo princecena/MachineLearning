@@ -23,10 +23,28 @@ test_set = subset(dataset, split == FALSE)
 # Fitting Multiple Linear Regression to the Training set
 regressor = lm(formula = Profit ~ .,
                data = training_set)
+summary(regressor)
 
 # Predicting the Test set results
 y_pred = predict(regressor, newdata = test_set)
 
+
+# Step by Step implementation of Backward Elimination
+regressor = lm(formula = Profit ~ R.D.Spend + Administration + Marketing.Spend + State,
+               data = training_set)
+summary(regressor)
+
+regressor = lm(formula = Profit ~ R.D.Spend + Administration + Marketing.Spend,
+               data = training_set)
+summary(regressor)
+
+regressor = lm(formula = Profit ~ R.D.Spend + Marketing.Spend,
+               data = training_set)
+summary(regressor)
+
+regressor = lm(formula = Profit ~ R.D.Spend,
+               data = training_set)
+summary(regressor)
 
 # Automatic implementation of Backward Implementation
 backwardElimination <- function(x, sl) {
